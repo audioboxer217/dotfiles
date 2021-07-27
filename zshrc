@@ -1,3 +1,7 @@
+if [ -z "$TMUX" ]; then
+  exec tmuxinator start Main
+fi
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -9,9 +13,11 @@ fi
 export PATH=$PATH:/usr/local/sbin:${HOME}/scripts:${HOME}/.krew/bin:$HOME/.cargo/bin:${HOME}/istio-1.10.0/bin:/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin
 export EDITOR='vim'
 
+## Doesn't seem to work with p10k Instant Prompt
+## Will manually start tmux instead.
 #tmux settings
-export ZSH_TMUX_AUTOSTART=true
-export ZSH_TMUX_AUTOQUIT=false
+#export ZSH_TMUX_AUTOSTART=true
+#export ZSH_TMUX_AUTOQUIT=false
 
 # Path to your oh-my-zsh installation.
 export ZSH="${HOME}/.oh-my-zsh"
