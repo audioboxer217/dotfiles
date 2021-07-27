@@ -108,6 +108,7 @@ rm -rf "${HOME}"/.bashrc "${HOME}"/.oh-my-zsh/completions
 ln -sf "${dir}"/ansible.cfg "${HOME}"/.ansible.cfg
 ln -sf "${dir}"/bashrc "${HOME}"/.bashrc
 ln -sf "${dir}"/zshrc "${HOME}"/.zshrc
+ln -sf "${dir}"/p10k.zsh "${HOME}"/.p10k.zsh
 ln -sf "${dir}"/bash_aliases "${HOME}"/.bash_aliases
 ln -sf "${dir}"/bash_aliases "${HOME}"/.oh-my-zsh/custom/aliases.zsh
 ln -sf "${dir}"/bash_functions "${HOME}"/.bash_functions
