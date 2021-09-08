@@ -81,6 +81,8 @@ elif [ "${os}" == "Darwin" ]; then
     ln -sf "${dir}"/iterm2.plist "${HOME}"/.iterm2/com.googlecode.iterm2.plist
     defaults write com.googlecode.iterm2 PrefsCustomFolder "${HOME}/.iterm2"
   fi
+  
+  limactl start --tty=false ${dir}/lima/default.yaml
 
 else
   echo "${os} not supported"

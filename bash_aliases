@@ -33,4 +33,6 @@ alias whatsmyip='curl ifconfig.co'
 # MAC OS Only
 if brew_loc="$(type -p brew)"; then
   alias fresh_brew='brew update && brew upgrade && brew cleanup && brew doctor'
+  alias nerdctl='lima nerdctl'
+  alias podman='lima podman'
 fi
