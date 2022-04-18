@@ -95,7 +95,7 @@ POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX='%F{blue}\u2570\uf460%F{white} '
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(aws brew docker git kubectl osx pip python pyenv virtualenv z)
+plugins=(aws brew docker git kubectl macos pip python pyenv virtualenv z)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -159,3 +159,4 @@ source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+autoload -U compinit; compinit
