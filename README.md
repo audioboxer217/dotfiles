@@ -15,7 +15,7 @@ git clone https://github.com/<username>/my_dotfiles.git
 cd my_dotfiles
 ```
 
-From there, you can either run the `setup_home.sh` script directly to have it run on your local machine.  
+From there, you can either run the `setup_home.sh` script directly to have it run on your local machine.
 
 * Ubuntu
 

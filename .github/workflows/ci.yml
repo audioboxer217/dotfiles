@@ -1,13 +1,14 @@
+---
 name: CI
 
 on:
   push:
     paths-ignore:
-    - '**/*.md'
-    - '.gitignore'
-    - 'LICENSE'
-    - 'Dockerfile'
-    - '.github/workflows/linter.yml'
+      - '**/*.md'
+      - '.gitignore'
+      - 'LICENSE'
+      - 'Dockerfile'
+      - '.github/workflows/linter.yml'
 
 jobs:
   test:
@@ -17,13 +18,12 @@ jobs:
         os: [ubuntu-20.04, macOS-latest]
 
     steps:
-    - uses: actions/checkout@v2
-      with:
-        submodules: recursive
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
 
-    - name: Run Setup
-      run: ./setup_home.sh
+      - name: Run Setup
+        run: ./setup_home.sh
 
-    - name: Run Tests
-      run: ./run_tests.sh
-
+      - name: Run Tests
+        run: ./run_tests.sh
