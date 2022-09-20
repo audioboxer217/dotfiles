@@ -17,10 +17,8 @@ RUN usermod -aG sudo $USER
 RUN echo "$USER:changeme" | chpasswd
 RUN echo "$USER ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
-COPY --chown=$USER . /home/$USER/dotfiles
 USER $USER
-WORKDIR /home/$USER/dotfiles
-RUN ["/bin/bash", "./setup_home.sh"]
-RUN ["/bin/bash", "./run_tests.sh"]
+RUN 'sh -c "$(curl -fsLS https://chezmoi.io/get)" -- init --one-shot --branch switch_to_chezmoi audioboxer/my_dotfiles.git'
+
 
 CMD ["/bin/bash"]

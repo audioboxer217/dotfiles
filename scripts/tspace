@@ -1,9 +1,0 @@
-#!/bin/bash
-
-# this is for setting up a workspace in tmux
-
-TARGET_DIR=$(pwd)
-TARGET_NAME=$(basename "$TARGET_DIR")
-TMUX=
-tmux new -d -s "$TARGET_NAME" -c "$TARGET_DIR"
-tmux switchc -t "$TARGET_NAME"
