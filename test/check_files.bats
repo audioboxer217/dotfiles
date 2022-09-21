@@ -10,42 +10,58 @@ link_check() {
   assert_line "${HOME}/${filename}@"
 }
 
-@test "Ansible Config link" {
-  link_check .ansible.cfg
+file_check() {
+  local -r filename="$1"
+  run ls -F "${HOME}/${filename}"
+  assert_line "${HOME}/${filename}"
 }
 
-@test "Bash Aliases link" {
-  link_check .bash_aliases
+dir_check() {
+  local -r filename="$1"
+  run ls -dF "${HOME}/${filename}"
+  assert_line "${HOME}/${filename}/"
 }
 
-@test "Bash Functions link" {
-  link_check .bash_functions
+@test "Ansible Config file" {
+  file_check .ansible.cfg
 }
 
-@test "Bash Themes link" {
-  link_check .bash_themes
+@test "Bash Aliases file" {
+  file_check .bash_aliases
 }
 
-@test "bashrc link" {
-  link_check .bashrc
+@test "Bash Functions file" {
+  file_check .bash_functions
 }
 
-@test "Git Configlink" {
-  link_check .gitconfig
+@test "Bash Themes directory" {
+  dir_check .bash_themes
 }
 
-@test "Global Git Ignore link" {
-  link_check .gitignore_global
+@test "bashrc file" {
+  file_check .bashrc
 }
 
-@test "SSH Config link" {
-  link_check .ssh/config
+@test "Git Config file" {
+  file_check .gitconfig
 }
 
-@test "Tmux Config link" {
-  link_check .tmux
+@test "Global Git Ignore file" {
+  file_check .gitignore_global
 }
 
-@test "Vim Config link" {
-  link_check .vim
+@test "SSH Config file" {
+  file_check .ssh/config
+}
+
+@test "SSH Config.d directory" {
+  dir_check .ssh/config.d
+}
+
+@test "Tmux Config directory" {
+  dir_check .tmux
+}
+
+@test "Vim Config directory" {
+  dir_check .vim
 }
