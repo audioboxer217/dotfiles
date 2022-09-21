@@ -22,5 +22,11 @@ jobs:
         with:
           submodules: recursive
 
+      - name: Get Chezmoi
+        run: curl -fsLS https://chezmoi.io/get -o install_chezmoi.sh
+
       - name: Run Setup
-        run: "$(curl -fsLS https://chezmoi.io/get)" -- init --one-shot --branch ${{ GITHUB_REF }} audioboxer/my_dotfiles.git 
+        run: ./install_chezmoi.sh -- init --apply --branch ${{ GITHUB_REF }} ${{ GITHUB_SERVER_URL }}/${{ GITHUB_REPOSITORY }}
+
+      - name: Run Tests
+        run: ./scripts/run_tests.sh
