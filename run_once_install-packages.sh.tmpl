@@ -67,7 +67,7 @@ if ! command -v brew >/dev/null 2>&1; then
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-brew update && brew bundle install --file "${dir}"/Brewfile
+brew update && brew bundle install --global
 
 #Enable completion and key-bindings for `fzf`
 "$(brew --prefix)"/opt/fzf/install --allbrew bundle install --global
