@@ -1,6 +1,6 @@
 # Test for my_dotfiles
 #
-# VERSION               0.2
+# VERSION               1.0
 
 FROM ubuntu:20.04
 
@@ -18,7 +18,10 @@ RUN echo "$USER:changeme" | chpasswd
 RUN echo "$USER ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 USER $USER
-RUN 'sh -c "$(curl -fsLS https://chezmoi.io/get)" -- init --one-shot --branch switch_to_chezmoi audioboxer/my_dotfiles.git'
+WORKDIR /home/$USER
+COPY scripts/install_chezmoi.sh .
+RUN sudo chmod +x install_chezmoi.sh
+RUN ["/bin/bash", "./install_chezmoi.sh", "-b", "switch_to_chezmoi"]
 
 
 CMD ["/bin/bash"]
