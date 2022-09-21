@@ -26,7 +26,7 @@ jobs:
         run: curl -fsLS https://chezmoi.io/get -o install_chezmoi.sh && chmod +x install_chezmoi.sh
 
       - name: Run Setup
-        run: ./install_chezmoi.sh -- init --apply --branch ${GITHUB_REF} ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}
+        run: ./install_chezmoi.sh -- init --apply --source=${GITHUB_WORKSPACE}
 
       - name: Run Tests
         run: ./scripts/run_tests.sh
