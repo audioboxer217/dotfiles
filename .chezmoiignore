@@ -1,6 +1,5 @@
 README.md
 Dockerfile
 LICENSE
-run_tests.sh
 test/
 dev.sh

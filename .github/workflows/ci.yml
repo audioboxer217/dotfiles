@@ -29,4 +29,4 @@ jobs:
         run: ./install_chezmoi.sh -- init --apply --source=${GITHUB_WORKSPACE}
 
       - name: Run Tests
-        run: ./scripts/run_tests.sh
+        run: ./test/run_tests.sh
