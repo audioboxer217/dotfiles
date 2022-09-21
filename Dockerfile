@@ -24,4 +24,4 @@ USER $USER
 WORKDIR /home/$USER
 RUN ["chezmoi", "init", "https://github.com/audioboxer217/my_dotfiles", "--branch=switch_to_chezmoi", "--apply"]
 
-CMD ["/bin/bash"]
+ENTRYPOINT ["/bin/bash"]
