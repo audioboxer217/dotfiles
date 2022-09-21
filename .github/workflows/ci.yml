@@ -23,7 +23,7 @@ jobs:
           submodules: recursive
 
       - name: Get Chezmoi
-        run: curl -fsLS https://chezmoi.io/get -o install_chezmoi.sh
+        run: curl -fsLS https://chezmoi.io/get -o install_chezmoi.sh && chmod +x install_chezmoi.sh
 
       - name: Run Setup
         run: ./install_chezmoi.sh -- init --apply --branch ${GITHUB_REF} ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}
