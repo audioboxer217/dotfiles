@@ -126,8 +126,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Initialize Z
-. /usr/local/etc/profile.d/z.sh
-. ~/scripts/zfz.sh
+# . /usr/local/etc/profile.d/z.sh
+# . ~/scripts/zfz.sh
 
 # Hashicorp Tools Autocomplete
 complete -C /usr/local/bin/terraform terraform
@@ -140,6 +140,6 @@ complete -C /usr/local/bin/consul consul
 export PATH="$PATH:/usr/local/sbin:${HOME}/scripts:${HOME}/Library/Python/3.7/bin"
 
 # Start tmux
-[ -z "$TMUX"  ] && { tmux attach || exec tmux new-session && exit;}
+#[ -z "$TMUX"  ] && { tmux attach || exec tmux new-session && exit;}
 
 complete -C /usr/local/bin/odo odo
