@@ -17,11 +17,11 @@ RUN usermod -aG sudo $USER
 RUN echo "$USER:changeme" | chpasswd
 RUN echo "$USER ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
+ADD https://chezmoi.io/get install_chezmoi.sh
+RUN ["/bin/sh", "./install_chezmoi.sh", "-b", "/usr/local/bin"]
+
 USER $USER
 WORKDIR /home/$USER
-COPY scripts/install_chezmoi.sh .
-RUN sudo chmod +x install_chezmoi.sh
-RUN ["/bin/bash", "./install_chezmoi.sh", "-b", "switch_to_chezmoi"]
-
+RUN ["chezmoi", "init", "https://github.com/audioboxer217/my_dotfiles", "--branch=switch_to_chezmoi", "--apply"]
 
 CMD ["/bin/bash"]
