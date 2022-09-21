@@ -3,5 +3,4 @@ Dockerfile
 LICENSE
 run_tests.sh
 test/
-scripts/
 dev.sh
