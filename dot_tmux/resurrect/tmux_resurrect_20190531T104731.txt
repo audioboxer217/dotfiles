@@ -1,5 +1,0 @@
-pane	Dashboard	0	:wtf	1	:*	0	:/Users/scott/Projects/my_dotfiles/tmux	1	wtf	:wtf
-pane	Main	0	:bash	1	:*	0	:/Users/scott	1	bash	:
-window	Dashboard	0	1	:*	cc5e,270x67,0,0,1
-window	Main	0	1	:*	cc5d,270x67,0,0,0
-state	Main	Dashboard
