@@ -19,8 +19,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-        with:
-          submodules: recursive
 
       - name: Get Chezmoi
         run: curl -fsLS https://chezmoi.io/get -o install_chezmoi.sh && chmod +x install_chezmoi.sh
