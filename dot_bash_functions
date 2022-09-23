@@ -1,3 +1,5 @@
+docs() { open docs://$1 }
+
 pwatch() { while true; do clear; $1; sleep $2; done; }
 
 news() { curl getnews.tech/$1; }

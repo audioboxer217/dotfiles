@@ -9,7 +9,7 @@ A collection of personalizations and conveniences for my personal systems.  This
 I am using [chezmoi](https://www.chezmoi.io/) to manage these files.
 ## Getting Started
 
-Since this is a dotfiles repo, you're probably going to want to fork this repo so that you can tweak it to your liking. I recommend naming the repo "dotfiles" for simplicity.  
+Since this is a dotfiles repo, you're probably going to want to fork this repo so that you can tweak it to your liking. I recommend naming the repo "dotfiles" for simplicity.
 
 ### One-liner to install and deploy
 `$ sh -c "$(curl -fsLS https://chezmoi.io/get)" -- init --apply $GITHUB_USERNAME`
