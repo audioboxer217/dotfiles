@@ -13,3 +13,6 @@
 [submodule "test/libs/bats-assert"]
 	path = test/libs/bats-assert
 	url = https://github.com/ztombol/bats-assert
+[submodule "dot_tmux/plugins/tpm"]
+	path = dot_tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm

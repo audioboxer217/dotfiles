@@ -1,6 +1,6 @@
 # Test for my_dotfiles
 #
-# VERSION               0.2
+# VERSION               1.0
 
 FROM ubuntu:20.04
 
@@ -17,10 +17,11 @@ RUN usermod -aG sudo $USER
 RUN echo "$USER:changeme" | chpasswd
 RUN echo "$USER ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
-COPY --chown=$USER . /home/$USER/dotfiles
-USER $USER
-WORKDIR /home/$USER/dotfiles
-RUN ["/bin/bash", "./setup_home.sh"]
-RUN ["/bin/bash", "./run_tests.sh"]
+ADD --chown=$USER --chmod=755 https://chezmoi.io/get /home/$USER/install_chezmoi.sh
 
-CMD ["/bin/bash"]
+USER $USER
+WORKDIR /home/$USER
+ADD --chown=$USER --chmod=755 . chezmoi
+RUN ["/bin/sh", "./install_chezmoi.sh", "--", "init", "--source=chezmoi", "--apply"]
+
+ENTRYPOINT ["/bin/bash"]

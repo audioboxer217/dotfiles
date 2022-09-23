@@ -5,7 +5,7 @@ load 'libs/bats-assert/load'
 load "${HOME}/.bash_functions"
 
 @test "weather function" {
-  run weather
+  run wttr
   assert_success
 }
 
