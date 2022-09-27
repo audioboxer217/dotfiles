@@ -1,9 +1,3 @@
-[submodule "vim"]
-	path = vim
-	url = https://github.com/audioboxer217/my-vim-config.git
-[submodule "tmux"]
-	path = tmux
-	url = https://github.com/audioboxer217/my-tmux-config.git
 [submodule "test/libs/bats"]
 	path = test/libs/bats
 	url = https://github.com/sstephenson/bats
