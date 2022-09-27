@@ -1,0 +1,31 @@
+[user]
+	name = Scott Eppler
+  email = seppler@presidio.com
+  signingkey = CDF6B2F3E774E4A3
+[commit]
+  gpgsign = true
+[core]
+  editor = vim
+  excludesfile = ~/.gitignore_global
+[color "status"]
+  added = green
+  updated = green
+  changed = yellow
+  untracked = red
+  unmerged = yellow
+[gpg]
+  program = /usr/local/bin/gpg
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+[alias]
+  ls = log --pretty='%Cred%h%Creset | %C(yellow)%d%Creset %s %Cgreen(%cr)%Creset %C(cyan)[%an]%Creset' --graph --all
+  clear = "!git branch — merged | grep -v ‘*’ | xargs -n 1 git branch -d"
+[pull]
+	rebase = true
+[http]
+	sslVerify = false
+[init]
+	defaultBranch = main
