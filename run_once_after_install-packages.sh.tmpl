@@ -80,6 +80,10 @@ if [ ! -d "${HOME}/.oh-my-zsh" ]; then
   "${HOME}"/oh-my-zsh_install.sh --unattended
 fi
 
+if [ ! -d "${HOME}/.tmux/plugins/tpm" ]; then
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+
 tfenv install latest
 
 echo "Don't forget to:"
