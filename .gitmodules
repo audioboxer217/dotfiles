@@ -7,3 +7,6 @@
 [submodule "test/libs/bats-assert"]
 	path = test/libs/bats-assert
 	url = https://github.com/ztombol/bats-assert
+[submodule "dot_oh-my-zsh/custom/themes/powerlevel10k"]
+	path = dot_oh-my-zsh/custom/themes/powerlevel10k
+	url = https://github.com/romkatv/powerlevel10k.git
