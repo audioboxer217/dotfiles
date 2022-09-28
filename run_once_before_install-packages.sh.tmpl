@@ -12,16 +12,17 @@ tools_apt=(
             zsh
             zsh-syntax-highlighting
             rbenv
+            jq
           )
 
 sudo apt-get update && sudo apt-get install -y "${tools_apt[@]}"
 
 ### Manual Installations ###
 # pyenv
-curl https://pyenv.run | bash
+curl -s https://pyenv.run | bash
 
 # keybase
-curl --remote-name https://prerelease.keybase.io/keybase_amd64.deb
+curl -s --remote-name https://prerelease.keybase.io/keybase_amd64.deb
 sudo dpkg -i keybase_amd64.deb
 sudo apt-get install -f
 rm keybase_amd64.deb
@@ -32,20 +33,24 @@ sudo curl -fsLS $fx_release -o /usr/local/bin/fx
 sudo chmod +x /usr/local/bin/fx
 
 # Fira Nerd Font
-fira_url=$(curl -s https://api.github.com/repos/ryanoasis/nerd-fonts/releases/latest | fx .assets '.map(x=> x.browser_download_url)' '.filter(x => x.includes("FiraCode"))[0]')
+fira_url=$(curl -s https://api.github.com/repos/ryanoasis/nerd-fonts/releases/latest | jq -r '.assets[] | select(.browser_download_url|test(".FiraCode.")).browser_download_url')
 wget "${fira_url}" -O fira.zip
 unzip fira.zip -d "${HOME}"/.fonts
 fc-cache -fv
 rm fira.zip
 
 # bat
-bat_url=$(curl -s https://api.github.com/repos/sharkdp/bat/releases/latest | fx .assets '.map(x=> x.browser_download_url)' '.filter(x => x.includes("{{ .chezmoi.arch }}.deb"))' '.filter(x => !x.includes("musl"))[0]')
+{{ if eq .chezmoi.arch "arm" -}}
+bat_url=$(curl -s https://api.github.com/repos/sharkdp/bat/releases/latest | jq -r '.assets[] | select(.browser_download_url|test(".armhf.deb")).browser_download_url')
+{{ else }}
+bat_url=$(curl -s https://api.github.com/repos/sharkdp/bat/releases/latest | jq -r '.assets[] | select(.browser_download_url|test(".{{ .chezmoi.arch }}.deb")).browser_download_url')
+{{ end -}}
 wget "${bat_url}" -O bat.deb
 sudo dpkg -i bat.deb
 rm bat.deb
 
 # exa
-exa_url=$(curl -s https://api.github.com/repos/ogham/exa/releases/latest | fx .assets '.map(x=> x.browser_download_url)' '.filter(x => x.includes("linux"))[0]')
+exa_url=$(curl -s https://api.github.com/repos/ogham/exa/releases/latest | jq -r '.assets[]|select(.browser_download_url|test(".{{ .chezmoi.arch }}.")).browser_download_url')
 wget "${exa_url}" -O exa.zip
 unzip -p  exa.zip exa-linux-x86_64 > exa
 sudo mv exa /usr/local/bin/exa
@@ -55,7 +60,7 @@ sudo curl -L https://raw.githubusercontent.com/ogham/exa/master/contrib/completi
 
 # z
 sudo mkdir -p /usr/local/etc/profile.d
-sudo curl "https://raw.githubusercontent.com/rupa/z/master/{z.sh}" -o /usr/local/etc/profile.d/"#1"
+sudo curl -s "https://raw.githubusercontent.com/rupa/z/master/{z.sh}" -o /usr/local/etc/profile.d/"#1"
 
 # tfenv
 git clone https://github.com/kamatama41/tfenv.git "${HOME}"/.tfenv
