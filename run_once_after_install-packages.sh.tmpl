@@ -27,7 +27,7 @@ sudo apt-get install -f
 rm keybase_amd64.deb
 
 # fx
-fx_release=$(curl -s https://api.github.com/repos/antonmedv/fx/releases/latest | grep "browser_download_url.*linux_amd64" | cut -d : -f 2,3 | tr -d \")
+fx_release=$(curl -s https://api.github.com/repos/antonmedv/fx/releases/latest | grep "browser_download_url.*linux_{{ .chezmoi.arch }}" | cut -d : -f 2,3 | tr -d \")
 sudo curl -fsLS $fx_release -o /usr/local/bin/fx
 sudo chmod +x /usr/local/bin/fx
 
@@ -39,7 +39,7 @@ fc-cache -fv
 rm fira.zip
 
 # bat
-bat_url=$(curl -s https://api.github.com/repos/sharkdp/bat/releases/latest | fx .assets '.map(x=> x.browser_download_url)' '.filter(x => x.includes("amd64.deb"))' '.filter(x => !x.includes("musl"))[0]')
+bat_url=$(curl -s https://api.github.com/repos/sharkdp/bat/releases/latest | fx .assets '.map(x=> x.browser_download_url)' '.filter(x => x.includes("{{ .chezmoi.arch }}.deb"))' '.filter(x => !x.includes("musl"))[0]')
 wget "${bat_url}" -O bat.deb
 sudo dpkg -i bat.deb
 rm bat.deb
@@ -73,13 +73,6 @@ brew update && brew bundle install --global
 #Enable completion and key-bindings for `fzf`
 "$(brew --prefix)"/opt/fzf/install --all
 {{ end -}}
-
-# Install oh-my-zsh
-if [ ! -d "${HOME}/.oh-my-zsh" ]; then
-  wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O "${HOME}"/oh-my-zsh_install.sh
-  chmod +x "${HOME}"/oh-my-zsh_install.sh
-  "${HOME}"/oh-my-zsh_install.sh --unattended
-fi
 
 if [ ! -d "${HOME}/.tmux/plugins/tpm" ]; then
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
