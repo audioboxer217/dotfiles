@@ -61,17 +61,6 @@ sudo curl "https://raw.githubusercontent.com/rupa/z/master/{z.sh}" -o /usr/local
 git clone https://github.com/kamatama41/tfenv.git "${HOME}"/.tfenv
 sudo ln -sf "${HOME}"/.tfenv/bin/tfenv /usr/local/bin/tfenv
 sudo ln -sf "${HOME}"/.tfenv/bin/terraform /usr/local/bin/terraform
-{{ else if eq .chezmoi.os "darwin" -}}
-# install homebrew if it's missing
-if ! command -v brew >/dev/null 2>&1; then
-  echo "Installing homebrew"
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-fi
-
-brew update && brew bundle install --global
-
-#Enable completion and key-bindings for `fzf`
-"$(brew --prefix)"/opt/fzf/install --all
 {{ end -}}
 
 # Install oh-my-zsh
