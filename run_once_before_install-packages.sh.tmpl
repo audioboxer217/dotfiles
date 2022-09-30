@@ -52,7 +52,7 @@ rm bat.deb
 # exa
 exa_url=$(curl -s https://api.github.com/repos/ogham/exa/releases/latest | jq -r '.assets[]|select(.browser_download_url|test(".{{ .chezmoi.arch }}.")).browser_download_url')
 wget "${exa_url}" -O exa.zip
-unzip -p  exa.zip exa-linux-x86_64 > exa
+unzip -p  exa.zip bin/exa > exa
 sudo mv exa /usr/local/bin/exa
 sudo chmod +x /usr/local/bin/exa
 rm exa.zip
