@@ -1,5 +1,5 @@
 [user]
-	name = Scott Eppler
+  name = Scott Eppler
   email = seppler@presidio.com
   signingkey = CDF6B2F3E774E4A3
 [commit]
@@ -14,7 +14,7 @@
   untracked = red
   unmerged = yellow
 [gpg]
-  program = /usr/local/bin/gpg
+  program = gpg 
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
@@ -24,8 +24,10 @@
   ls = log --pretty='%Cred%h%Creset | %C(yellow)%d%Creset %s %Cgreen(%cr)%Creset %C(cyan)[%an]%Creset' --graph --all
   clear = "!git branch — merged | grep -v ‘*’ | xargs -n 1 git branch -d"
 [pull]
-	rebase = true
+  rebase = true
 [http]
-	sslVerify = false
+  sslVerify = false
 [init]
-	defaultBranch = main
+  defaultBranch = main
+[includeIf "gitdir:~/Projects/customers/UNFI"]
+  path = .gitconfig-unfi
