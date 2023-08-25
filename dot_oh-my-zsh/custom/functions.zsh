@@ -1,3 +1,7 @@
+function ll {
+  cd "$(llama "$@")"
+}
+
 pwatch() { while true; do clear; $1; sleep $2; done; }
 
 news() { curl getnews.tech/$1; }
@@ -17,6 +21,17 @@ aws-switch() {
     export AWS_PROFILE=""
   else
     export AWS_PROFILE="${1}"
+  fi
+}
+
+aws-login() {
+  if [ -z $1 ]
+  then
+    echo "Profile Name must be provided!"
+    return 1
+  else
+    aws-switch $1
+    aws sso login
   fi
 }
 

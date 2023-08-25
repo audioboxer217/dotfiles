@@ -30,7 +30,9 @@ alias k='kubectl'
 
 alias whatsmyip='curl ifconfig.co'
 
-alias docker='podman'
+# alias docker='podman'
+
+alias aws-unfi-code='aws sso login --profile unfi-code'
 
 # MAC OS Only
 if brew_loc="$(type -p brew)"; then
