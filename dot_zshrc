@@ -5,8 +5,13 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# set $PATH.
+export PATH=$PATH:/usr/local/sbin:${HOME}/scripts:${HOME}/.krew/bin:$HOME/.cargo/bin:${HOME}/istio-1.10.0/bin:/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin
+export EDITOR='vim'
+
 # Created by Zap installer
 [ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
+plug "mattberther/zsh-pyenv"
 plug "zsh-users/zsh-autosuggestions"
 plug "zap-zsh/supercharge"
 plug "romkatv/powerlevel10k"
@@ -18,7 +23,30 @@ plug "zap-zsh/fzf"
 plug "hlissner/zsh-autopair"
 plug "chrishrb/zsh-kubectl"
 
-# Load and initialise completion system
+# Autocomplete Items
+## Hashicorp
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C $(which terraform) terraform
+complete -o nospace -C /usr/local/bin/vault vault
+#complete -o nospace -C /usr/local/bin/boundary boundary
+
+## Docker
+source <(docker completion zsh)
+
+## SSH
+# Highlight the current autocomplete option
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+
+### Better SSH/Rsync/SCP Autocomplete
+zstyle ':completion:*:(scp|rsync):*' tag-order ' hosts:-ipaddr:ip\ address hosts:-host:host files'
+zstyle ':completion:*:(ssh|scp|rsync):*:hosts-host' ignored-patterns '*(.|:)*' loopback ip6-loopback localhost ip6-localhost broadcasthost
+zstyle ':completion:*:(ssh|scp|rsync):*:hosts-ipaddr' ignored-patterns '^(<->.<->.<->.<->|(|::)([[:xdigit:].]##:(#c,2))##(|%*))' '127.0.0.<->' '255.255.255.255' '::1' 'fe80::*'
+
+## Allow for autocomplete to be case insensitive
+zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' \
+  '+l:|?=** r:|?=**'
+
+## Load and initialise completion system
 autoload -Uz compinit
 compinit
 
@@ -27,3 +55,11 @@ compinit
 
 # Initialize Autojump
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
+# Load custom functions and aliases
+[[ ! -f ${HOME}/aliases.zsh ]] || source ${HOME}/aliases.zsh
+[[ ! -f ${HOME}/functions.zsh ]] || source ${HOME}/functions.zsh
+
+# Tea
+test -d "$HOME/.tea" && source <("$HOME/.tea/tea.xyz/v*/bin/tea" --magic=zsh --silent)
+
