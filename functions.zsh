@@ -50,6 +50,11 @@ git_status() {
   GIT_PAGER=cat git log -n 5 --format="%Cgreen%h %C(white)%C(dim)%ad %C(reset)%C(white)%s %C(dim)%an" --date=format:"%H:%M %d %b %y"
 }
 
+clean_branches() {
+  git fetch -p 
+  git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -d
+}
+
 prompt_theme() {
   if [ -f ~/.bash_themes/$1 ]; then
     echo $1 > ~/.bash_prompt_theme
