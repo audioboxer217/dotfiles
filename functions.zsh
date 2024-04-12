@@ -16,6 +16,11 @@ vpn() {
   osascript ~/apple_scripts/${1}.scpt
 }
 
+aws-profiles () {
+  [[ -r "${AWS_CONFIG_FILE:-$HOME/.aws/config}" ]] || return 1
+  grep -Eo '\[.*\]' "${AWS_CONFIG_FILE:-$HOME/.aws/config}" | grep -v "sso-session " | sed -E 's/^[[:space:]]*\[(profile)?[[:space:]]*([-_[:alnum:]\.@]+)\][[:space:]]*$/\2/g'
+}
+
 aws-switch() {
   if [ "${1}" = "clear" ]; then
     export AWS_PROFILE=""
@@ -70,6 +75,20 @@ prompt_theme() {
     fi
   fi
  }
+
+ tfe_switch() {
+  if [ -z $1 ]
+  then
+    select workspace in $(terraform workspace list|tr -d '*'|tr -d ' ')
+    do
+      echo "Switching to $workspace"
+      terraform workspace select $workspace
+      break
+    done
+  else
+    terraform workspace select $(terraform workspace list |grep $1|tr -d '*'|tr -d ' ')
+  fi
+}
 
 get_batt_info() {
   local red=$(tput setaf 1)
