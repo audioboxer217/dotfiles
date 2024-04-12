@@ -143,3 +143,7 @@ export PATH="$PATH:/usr/local/sbin:${HOME}/scripts:${HOME}/Library/Python/3.7/bi
 #[ -z "$TMUX"  ] && { tmux attach || exec tmux new-session && exit;}
 
 complete -C /usr/local/bin/odo odo
+
+eval "$(tea --shellcode)"  #docs.tea.xyz/shellcode
+
+eval "$(pkgx --shellcode)"  #docs.pkgx.sh/shellcode
