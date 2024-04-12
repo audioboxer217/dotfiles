@@ -6,8 +6,8 @@ if brew_loc="$(type -p wtfutil)"; then
   alias wtf='wtfutil'
 fi
 
-if brew_loc="$(type -p exa)"; then
-  alias ls='exa'
+if brew_loc="$(type -p eza)"; then
+  alias ls='eza'
 fi
 
 if brew_loc="$(type -p prettyping)"; then
