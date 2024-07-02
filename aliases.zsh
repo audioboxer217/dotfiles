@@ -1,3 +1,7 @@
+if brew_loc="$(type -p z)"; then
+  alias cd='z'
+fi
+
 if brew_loc="$(type -p bat)"; then
   alias cat='bat'
 fi
