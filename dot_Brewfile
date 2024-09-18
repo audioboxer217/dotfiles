@@ -8,7 +8,6 @@ tap "eth-p/software"
 tap "github/gh"
 tap "hashicorp/tap"
 tap "homebrew/bundle"
-tap "homebrew/cask-fonts"
 tap "homebrew/services"
 tap "isacikgoz/gitin"
 tap "nektos/tap"
@@ -52,10 +51,9 @@ brew "docker"
 brew "duf"
 brew "dust"
 brew "entr"
-brew "exa"
+brew "eza"
 brew "faas-cli"
 brew "fd"
-brew "fluxctl"
 brew "fpp"
 brew "fx"
 brew "fzf"
@@ -65,7 +63,6 @@ brew "ghostscript"
 brew "git"
 brew "glances"
 brew "go"
-brew "glide"
 brew "gnu-sed"
 brew "unbound"
 brew "gnupg"
@@ -110,7 +107,6 @@ brew "nomad"
 brew "nushell"
 brew "nvm"
 brew "oath-toolkit"
-brew "octant"
 brew "openjdk"
 brew "openshift-cli"
 brew "packer"
@@ -152,7 +148,7 @@ brew "zlib"
 brew "zsh"
 brew "zsh-completions"
 brew "zsh-syntax-highlighting"
-brew "aws/tap/aws-sam-cli"
+brew "aws-sam-cli"
 brew "azure/draft/draft"
 brew "charmbracelet/tap/gum"
 brew "derailed/k9s/k9s"
@@ -163,7 +159,7 @@ brew "hashicorp/tap/waypoint"
 brew "isacikgoz/gitin/gitin"
 brew "pulumi/tap/pulumi"
 brew "rigellute/tap/spotify-tui"
-brew "romkatv/powerlevel10k/powerlevel10k"
+brew "powerlevel10k"
 brew "stateful/tap/rdme"
 brew "teamookla/speedtest/speedtest"
 brew "tilt-dev/tap/tilt"
@@ -182,24 +178,3 @@ cask "orbstack"
 cask "pocket-casts"
 cask "powershell"
 cask "vagrant"
-mas "Aiko", id: 1672085276
-mas "Cyph", id: 1480070821
-mas "HP Smart", id: 1474276998
-mas "iMovie", id: 408981434
-mas "Keynote", id: 409183694
-mas "Kindle", id: 405399194
-mas "Messenger", id: 1480068668
-mas "Microsoft Remote Desktop", id: 1295203466
-mas "Microsoft To Do", id: 1274495053
-mas "NordVPN", id: 905953485
-mas "Numbers", id: 409203825
-mas "OneDrive", id: 823766827
-mas "Pages", id: 409201541
-mas "Parcel", id: 639968404
-mas "Pocket", id: 568494494
-mas "Shareful", id: 1522267256
-mas "Slack", id: 803453959
-mas "Tailscale", id: 1475387142
-mas "Telegram", id: 747648890
-mas "The Unarchiver", id: 425424353
-mas "Trello", id: 1278508951
