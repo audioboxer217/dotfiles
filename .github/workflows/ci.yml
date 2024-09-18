@@ -4,11 +4,11 @@ name: CI
 on:
   push:
     paths-ignore:
-      - '**/*.md'
-      - '.gitignore'
-      - 'LICENSE'
-      - 'Dockerfile'
-      - '.github/workflows/linter.yml'
+      - "**/*.md"
+      - ".gitignore"
+      - "LICENSE"
+      - "Dockerfile"
+      - ".github/workflows/linter.yml"
 
 jobs:
   test:
@@ -24,7 +24,7 @@ jobs:
         run: curl -fsLS https://chezmoi.io/get -o install_chezmoi.sh && chmod +x install_chezmoi.sh
 
       - name: Run Setup
-        run: ./install_chezmoi.sh -- init --apply --source=${GITHUB_WORKSPACE}
+        run: "./install_chezmoi.sh -- init --apply --source=${GITHUB_WORKSPACE}"
 
       - name: Run Tests
-        run: ./test/run_tests.sh | tee $GITHUB_STEP_SUMMARY
+        run: "./test/run_tests.sh | tee $GITHUB_STEP_SUMMARY"
