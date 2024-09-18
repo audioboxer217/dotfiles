@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+
+# shellcheck disable=SC1054,SC1083
 {{ if eq .chezmoi.os "linux" -}}
 tools_apt=(
 	gpg
@@ -41,10 +43,13 @@ fc-cache -fv
 rm fira.zip
 
 # bat
+# shellcheck disable=SC1054,SC1083
 {{ if eq .chezmoi.arch "arm" -}}
 bat_url=$(curl -s https://api.github.com/repos/sharkdp/bat/releases/latest | jq -r '.assets[] | select(.browser_download_url|test(".armhf.deb")).browser_download_url')
+# shellcheck disable=SC1009,SC1054,SC1073,SC1072
 {{ else }}
 bat_url=$(curl -s https://api.github.com/repos/sharkdp/bat/releases/latest | jq -r '[.assets[] | select(.browser_download_url|test(".amd64.deb")).browser_download_url][0]')
+# shellcheck disable=SC1009,SC1054,SC1073,SC1083,SC1056,SC1072
 {{ end -}}
 wget "${bat_url}" -O bat.deb
 sudo dpkg -i bat.deb

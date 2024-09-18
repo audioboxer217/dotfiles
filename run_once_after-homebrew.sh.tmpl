@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# shellcheck disable=SC1054,SC1083
 {{ if eq .chezmoi.os "darwin" -}}
 
 # install homebrew if it's missing
@@ -13,4 +14,5 @@ brew update && brew bundle install --global
 #Enable completion and key-bindings for `fzf`
 "$(brew --prefix)"/opt/fzf/install --all
 
+# shellcheck disable=SC1009,SC1054,SC1073,SC1083,SC1056,SC1072
 {{ end -}}
