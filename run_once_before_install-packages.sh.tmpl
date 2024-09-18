@@ -1,19 +1,19 @@
 #!/usr/bin/env bash
 {{ if eq .chezmoi.os "linux" -}}
 tools_apt=(
-    gpg
-    git
-    vim
-    tmux
-    ansible
-    direnv
-    fzf
-    htop
-    prettyping
-    zsh
-    zsh-syntax-highlighting
-    rbenv
-    jq
+	gpg
+	git
+	vim
+	tmux
+	ansible
+	direnv
+	fzf
+	htop
+	prettyping
+	zsh
+	zsh-syntax-highlighting
+	rbenv
+	jq
 )
 
 sudo apt-get update && sudo apt-get install -y "${tools_apt[@]}"
@@ -72,7 +72,7 @@ sudo ln -sf "${HOME}"/.tfenv/bin/terraform /usr/local/bin/terraform
 zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1
 
 if [ ! -d "${HOME}/.tmux/plugins/tpm" ]; then
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
 tfenv install latest
