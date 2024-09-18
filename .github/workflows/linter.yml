@@ -3,6 +3,8 @@ name: Lint
 
 on: [push]
 
+permissions: read-all
+
 jobs:
   lint:
     runs-on: ubuntu-latest
