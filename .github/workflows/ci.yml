@@ -18,7 +18,7 @@ jobs:
         os: [ubuntu-20.04, macOS-latest]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Get Chezmoi
         run: curl -fsLS https://chezmoi.io/get -o install_chezmoi.sh && chmod +x install_chezmoi.sh
@@ -27,4 +27,4 @@ jobs:
         run: ./install_chezmoi.sh -- init --apply --source=${GITHUB_WORKSPACE}
 
       - name: Run Tests
-        run: ./test/run_tests.sh
+        run: ./test/run_tests.sh | tee $GITHUB_STEP_SUMMARY
