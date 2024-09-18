@@ -8,8 +8,8 @@ load 'libs/bats-assert/load'
   assert_success
 }
 
-@test "exa" {
-  run exa
+@test "eza" {
+  run eza
   assert_success
 }
 
