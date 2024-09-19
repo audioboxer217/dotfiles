@@ -1,2 +1,4 @@
 git_api.key
 *.log
+*.tap
+test.md
