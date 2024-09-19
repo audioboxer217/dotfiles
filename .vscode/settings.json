@@ -1,0 +1,6 @@
+{
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveMode": "modificationsIfAvailable",
+  "prettier.documentSelectors": ["*.yml", "*.md", "*.json"],
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+}

@@ -4,7 +4,7 @@ repos:
     rev: v1.17.0
     hooks:
       - id: yamllint
-        args: [-c=.yamllint]
+        args: [-c=.github/linters/.yamllint]
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.1.0
     hooks:
@@ -16,3 +16,11 @@ repos:
     rev: v1.2.0
     hooks:
       - id: detect-secrets
+  - repo: local
+    hooks:
+      - id: prettier
+        name: prettier
+        entry: prettier --write .
+        language: system
+        types: [bash]
+        require_serial: true
