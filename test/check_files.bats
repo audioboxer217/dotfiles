@@ -13,7 +13,7 @@ link_check() {
 file_check() {
 	local -r filename="$1"
 	run ls -F "${HOME}/${filename}"
-	assert_successline "${HOME}/${filename}"
+	assert_line "${HOME}/${filename}"
 }
 
 dir_check() {
