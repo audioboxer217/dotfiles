@@ -1,7 +1,7 @@
 #!/usr/bin/env bats
 
-load 'libs/bats-support/load'
-load 'libs/bats-assert/load'
+load 'test_helper/bats-support/load'
+load 'test_helper/bats-assert/load'
 load "${HOME}/.bash_functions"
 
 link_check() {
