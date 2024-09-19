@@ -17,11 +17,13 @@ RUN apt-get update && \
 RUN useradd -ms /bin/bash $USER && \
     usermod -aG sudo $USER
 #checkov:skip=CKV2_DOCKER_1: required
-RUN -o pipefail echo "$USER:changeme" | chpasswd
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+RUN echo "$USER:changeme" | chpasswd
 #checkov:skip=CKV2_DOCKER_17: required
-RUN -o pipefail echo "$USER ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+RUN echo "$USER ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
-COPY --chown=$USER --chmod=755 https://chezmoi.io/get /home/$USER/install_chezmoi.sh
+#checkov:skip=CKV_DOCKER_4: required
+ADD --chown=$USER --chmod=755 https://chezmoi.io/get /home/$USER/install_chezmoi.sh
 
 USER $USER
 WORKDIR /home/$USER
