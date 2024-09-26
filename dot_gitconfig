@@ -5,7 +5,7 @@
 [commit]
   gpgsign = true
 [core]
-  editor = vim
+  editor = hx
   excludesfile = ~/.gitignore_global
 [color "status"]
   added = green
@@ -14,7 +14,7 @@
   untracked = red
   unmerged = yellow
 [gpg]
-  program = gpg 
+  program = gpg
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
@@ -29,5 +29,5 @@
   sslVerify = false
 [init]
   defaultBranch = main
-[includeIf "gitdir:~/Projects/customers/UNFI"]
-  path = .gitconfig-unfi
+[includeIf "gitdir:~/Projects/personal/**/"]
+  path = ~/.gitconfig-personal
