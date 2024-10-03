@@ -1,0 +1,16 @@
+theme = "kanagawa"
+## Other Themes I like
+# onedark
+
+[editor]
+line-number = "relative"
+cursorline = true
+rulers = [80]
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
