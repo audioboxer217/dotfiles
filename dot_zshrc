@@ -71,3 +71,4 @@ complete -o nospace -C /opt/homebrew/bin/packer packer
 eval "$(zoxide init --cmd z zsh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+eval "$(mcfly init zsh)"
