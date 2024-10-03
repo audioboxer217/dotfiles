@@ -10,6 +10,10 @@ if brew_loc="$(type -p difft)"; then
   alias diff='difft'
 fi
 
+if brew_loc="$(type -p lazygit)"; then
+  alias lg='lazygit'
+fi
+
 if brew_loc="$(type -p wtfutil)"; then
   alias wtf='wtfutil'
 fi
