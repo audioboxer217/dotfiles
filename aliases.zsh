@@ -6,6 +6,10 @@ if brew_loc="$(type -p bat)"; then
   alias cat='bat'
 fi
 
+if brew_loc="$(type -p difft)"; then
+  alias diff='difft'
+fi
+
 if brew_loc="$(type -p wtfutil)"; then
   alias wtf='wtfutil'
 fi
