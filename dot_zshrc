@@ -7,7 +7,7 @@ fi
 
 # set $PATH.
 export PATH=$PATH:/usr/local/sbin:${HOME}/scripts:${HOME}/.krew/bin:$HOME/.cargo/bin:${HOME}/istio-1.10.0/bin:/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin
-export EDITOR='vim'
+export EDITOR='hx'
 
 # Created by Zap installer
 [ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
