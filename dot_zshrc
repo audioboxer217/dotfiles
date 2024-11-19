@@ -69,6 +69,7 @@ source <(pkgx --shellcode)  #docs.pkgx.sh/shellcode
 
 complete -o nospace -C /opt/homebrew/bin/packer packer
 eval "$(zoxide init --cmd z zsh)"
+eval "$(fjira completion zsh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(mcfly init zsh)"
