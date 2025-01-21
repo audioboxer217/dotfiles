@@ -146,4 +146,4 @@ complete -C /usr/local/bin/odo odo
 
 eval "$(tea --shellcode)"  #docs.tea.xyz/shellcode
 
-eval "$(pkgx --shellcode)"  #docs.pkgx.sh/shellcode
+eval "$(pkgx dev --shellcode)"  # https://github.com/pkgxdev/dev
