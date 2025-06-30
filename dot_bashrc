@@ -147,3 +147,11 @@ complete -C /usr/local/bin/odo odo
 eval "$(tea --shellcode)"  #docs.tea.xyz/shellcode
 
 eval "$(pkgx dev --shellcode)"  # https://github.com/pkgxdev/dev
+
+. "$HOME/.atuin/bin/env"
+
+[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+eval "$(atuin init bash)"
+# >>> Safety >>>
+[ -f "/Users/scott/.safety/.safety_profile" ] && . "/Users/scott/.safety/.safety_profile"
+# <<< Safety <<<

@@ -5,3 +5,5 @@ eval "$(pyenv init --path)"
 
 #initializ Rust Cargo
 export PATH="$PATH:$HOME/.cargo/bin"
+
+. "$HOME/.atuin/bin/env"

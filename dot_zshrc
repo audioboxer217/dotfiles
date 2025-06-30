@@ -76,3 +76,10 @@ export BUN_INSTALL="$HOME/Library/Application Support/reflex/bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 eval "$(pkgx dev --shellcode)"  # https://github.com/pkgxdev/dev
+
+. "$HOME/.atuin/bin/env"
+
+eval "$(atuin init zsh)"
+# >>> Safety >>>
+[ -f "/Users/scott/.safety/.safety_profile" ] && . "/Users/scott/.safety/.safety_profile"
+# <<< Safety <<<
